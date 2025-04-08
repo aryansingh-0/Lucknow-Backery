@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { updateSearch } from '@/lib/cakeSlice';
 import Image from 'next/image';
 import Logo from "@/public/logo.png"
+import { IoCloseSharp } from "react-icons/io5";
 export default function Navbar() {
   const dispatch = useDispatch();
   const pathname = usePathname();
@@ -34,7 +35,10 @@ export default function Navbar() {
     <nav className="backdrop-blur-md bg-white/30 shadow-lg fixed z-50 top-0 px-6 py-4 flex items-center justify-between w-full border-b border-white/20">
     {/* Brand */}
     <div className="text-2xl font-bold text-pink-700 drop-shadow-sm tracking-wide">
+      <Link href={"/"}>
       <Image src={Logo} width={60} height={60} alt='logo' />
+      </Link>
+      
        
     </div>
   
@@ -101,13 +105,14 @@ export default function Navbar() {
       )}
   
       <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-pink-700">
-        <Menu size={24} />
+        
+        {isMobileMenuOpen ? <IoCloseSharp size={24}  />:<Menu size={24} />}
       </button>
     </div>
   
     {/* Mobile Dropdown */}
     {isMobileMenuOpen && (
-      <div className="absolute top-full left-0 w-full bg-white/30 backdrop-blur-md border-t border-white/20 shadow-md p-4 flex flex-col gap-3 text-gray-800 font-medium md:hidden z-50">
+      <div className="absolute top-full left-0 w-full backdrop-blur-md bg-white  shadow-lg border-t border-white/20   p-4 flex flex-col gap-3 text-gray-800 font-medium md:hidden z-50">
         <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
         <Link href="/carts" onClick={() => setIsMobileMenuOpen(false)}>Cart</Link>
         <Link href="/contactus" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
