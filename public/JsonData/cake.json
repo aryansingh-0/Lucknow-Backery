@@ -1,0 +1,226 @@
+[
+  {
+    "cakeName": "Red velvet heart shape cake",
+    "cakePrice": 749,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102310/Red_velvet_heart_shape_cake_500_gm_749_byotfu.jpg"
+  },
+  {
+    "cakeName": "White forest cake",
+    "cakePrice": 499,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102539/White_forest_cake_500_gm_499_c35snt.jpg"
+  },
+  {
+    "cakeName": "Anniversary cake",
+    "cakePrice": 699,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101149/Anniversary_cake_500_gm_699_k56vd6.jpg"
+  },
+  {
+    "cakeName": "Heart shape black forest cake",
+    "cakePrice": 650,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101816/Heart_shape_black_forest_cake_650_q2vrmn.jpg"
+  },
+  {
+    "cakeName": "Mix chocolate chip cake",
+    "cakePrice": 650,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102085/Mix_chocolate_chip_cake_500_gm_650_qiinnm.jpg"
+  },
+  {
+    "cakeName": "Strawberry cake",
+    "cakePrice": 499,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102382/Stoberry_cake_500_gm_499_ocdqzv.jpg"
+  },
+  {
+    "cakeName": "Strawberry cake",
+    "cakePrice": 600,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102434/Stowery_cake_500_gm_6000_orqynd.jpg"
+  },
+  {
+    "cakeName": "Vanilla blue cake",
+    "cakePrice": 549,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102488/Vanilla_blu_cake_500_gm_549_er3ys6.jpg"
+  },
+  {
+    "cakeName": "Oreo cake",
+    "cakePrice": 650,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102284/Oreo_cake_500_gm_650_oa6gmh.jpg"
+  },
+  {
+    "cakeName": "Butterscotch cake",
+    "cakePrice": 499,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101458/Butter_scotch_cake_500_gm_499_m60yws.jpg"
+  },
+  {
+    "cakeName": "Chocolate cream cake",
+    "cakePrice": 520,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101668/Chocolate_creem_cake_500_gm520_zb7aqf.jpg"
+  },
+  {
+    "cakeName": "Blueberry cake",
+    "cakePrice": 700,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101368/Bluberry_cake_500_gm_700_qeuhbk.jpg"
+  },
+  {
+    "cakeName": "Butterscotch crunchy cake",
+    "cakePrice": 650,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101519/Butter_scotch_crunchy_cake_500_gm_650_j4dsyf.jpg"
+  },
+  {
+    "cakeName": "Normal black forest cake",
+    "cakePrice": 499,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102142/Normal_black_forest_cake_500_gm_vxjc7i.jpg"
+  },
+  {
+    "cakeName": "Love truffles cake",
+    "cakePrice": 600,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102017/Love_truffles_cake_500_gm_600_yqvcsn.jpg"
+  },
+  {
+    "cakeName": "Walnut cake",
+    "cakePrice": 659,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102507/Walnut_cake_659_fned75.jpg"
+  },
+  {
+    "cakeName": "Fresh fruit cake",
+    "cakePrice": 750,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101738/Fresh_fruit_cake_500_gm_750_vb8zck.jpg"
+  },
+  {
+    "cakeName": "Black forest matka cake",
+    "cakePrice": 599,
+    "cakeWeight": "600 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101302/black_forest_matka_cake_600_rs599_irmkwh.jpg"
+  },
+  {
+    "cakeName": "Normal pineapple cake",
+    "cakePrice": 499,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102244/Normal_pineapple_cake_500_gm_qdio2i.jpg"
+  },
+  {
+    "cakeName": "Luxury pineapple cake",
+    "cakePrice": 698,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102048/Luxury_pineapple_cake_698_xkjnzr.jpg"
+  },
+  {
+    "cakeName": "Brownie cake",
+    "cakePrice": 575,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101421/Brownie_cake_500_gm_575_tqqfb0.jpg"
+  },
+  {
+    "cakeName": "Heart shape cake",
+    "cakePrice": 850,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101860/Heart_shape_cake_500_gm_850_tndz7k.jpg"
+  },
+  {
+    "cakeName": "Chocolate crunch cake",
+    "cakePrice": 650,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101578/Chocolate_crunch_cake_500_gm_650_c5fxwx.jpg"
+  },
+  {
+    "cakeName": "Chocolate almond cake",
+    "cakePrice": 600,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101624/Chocolate_almond_cake_500_gm_uy4omh.jpg"
+  },
+  {
+    "cakeName": "Chocolate mud cake",
+    "cakePrice": 550,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101706/Chocolate_mud_cake_550_twefve.jpg"
+  },
+  {
+    "cakeName": "Special chocolate chip cake",
+    "cakePrice": 650,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744102349/Special_chocolate_chip_cake_650_edjcul.jpg"
+  },
+  {
+    "cakeName": "Golden chocochips cake",
+    "cakePrice": 600,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101768/Golden_chocochips_cake_600_sqyuaw.jpg"
+  },
+  {
+    "cakeName": "Kit ket cake",
+    "cakePrice": 1200,
+    "cakeWeight": "500 gm",
+    "category": "Birthday",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744101910/Kit_ket_cake_1200_l5kgwk.jpg"
+  },
+  {
+    "cakeName": "Vanilla love special cake",
+    "cakePrice": 700,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744111922/IMG-20250407-WA0040_jbrjsu.jpg"
+  },
+  {
+    "cakeName": "Vanilla Vanilla heart shape cake",
+    "cakePrice": 750,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744112183/IMG-20250407-WA0042_nf7rpw.jpg"
+  },
+  {
+    "cakeName": "Chocolate  blue cake",
+    "cakePrice": 575,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744112253/IMG-20250407-WA0041_yvrnhp.jpg"
+  },
+  {
+    "cakeName": "Special anniversary cake ",
+    "cakePrice": 750,
+    "cakeWeight": "500 gm",
+    "category": "Anniversary",
+    "url": "https://res.cloudinary.com/dgp04dpun/image/upload/v1744112272/IMG-20250407-WA0039_yvdbyt.jpg"
+  }
+]
