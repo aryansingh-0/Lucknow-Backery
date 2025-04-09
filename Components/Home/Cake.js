@@ -50,11 +50,12 @@ export default function Cake() {
             </div>
 
             <div className="viewmore flex items-center justify-center mt-8">
+               <Link href={"/cakes"}>
                 <button
                     className="bg-link cursor-pointer  text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300"
                 >
                     View More Products
-                </button>
+                </button></Link>
             </div>
 
             {selectedCake && (
