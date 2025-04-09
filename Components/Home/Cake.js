@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import CakeData from '@/public/JsonData/cake.json';
 import AddToCartModal from './AddToCartModal';
 import CakeCard from './CakeCard';
- 
+import Link from 'next/link';
+
 export default function Cake() {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedCake, setSelectedCake] = useState(null);
