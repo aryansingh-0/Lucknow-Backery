@@ -10,15 +10,11 @@ function ContactUs() {
           Lucknow Bakers, Hazratganj, Lucknow, Uttar Pradesh - 226001
         </p>
         <div className="w-full h-64 rounded-lg overflow-hidden shadow-md  ">
-          <iframe
-            title="Lucknow Bakers Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.401831301345!2d80.94615921438338!3d26.850640768053567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2c5d7cc85f7%3A0x9fcbfa5a3d2caa18!2sHazratganj%2C%20Lucknow%2C%20Uttar%20Pradesh%20226001!5e0!3m2!1sen!2sin!4v1685093749694!5m2!1sen!2sin"
-            width="100%"
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3559.819743975196!2d80.995446!3d26.845684999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUwJzQ0LjUiTiA4MMKwNTknNDMuNiJF!5e0!3m2!1sen!2sin!4v1744225921396!5m2!1sen!2sin"  width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
-            loading="lazy"
-          ></iframe>
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
 
