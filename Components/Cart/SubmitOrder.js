@@ -44,7 +44,11 @@ export default function SubmitOrder({ onComplete }) {
       });
 
       setLoading(false);
-
+      const send = await fetch('/api/notify-shop', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cart }),
+      });
       if (res.ok) {
         alert('🎉 Order successfully placed!');
         dispatch(clearCart()); // ✅ Clears cart in Redux and localStorage

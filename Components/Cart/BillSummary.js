@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
-import CheckoutButton from './CheckoutButton';
+
 import UserDetailsForm from './UserDetailsForm ';
 import QRPaymentStep from './QRPaymentStep';
 import SubmitOrder from './SubmitOrder';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '@/lib/cartSlice'; // adjust path if different
 
 export default function BillSummary({ onClose }) {
   const [cart, setCart] = useState([]);
@@ -24,7 +26,7 @@ export default function BillSummary({ onClose }) {
     });
     const data = await res.json();
     alert('Cash on Delivery order placed!\nShop notified via WhatsApp.');
-    localStorage.removeItem('cart');
+    dispatch(clearCart());
     onClose();
   };
 
