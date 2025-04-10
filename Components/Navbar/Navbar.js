@@ -10,6 +10,7 @@ import { updateSearch } from '@/lib/cakeSlice';
 import Image from 'next/image';
 import Logo from '@/public/logo.png';
 import { IoCloseSharp } from 'react-icons/io5';
+import LogoutButton from '../Admin/Logout';
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -75,6 +76,10 @@ export default function Navbar() {
         <Link href="/terms-conditions" className="hover:text-pink-600 transition">Terms</Link>
         <Link href="/cancellation-refund" className="hover:text-pink-600 transition">Refunds</Link>
         <Link href="/about" className="hover:text-pink-600 transition">About</Link>
+
+        {
+          pathname === '/admin/order' && (<LogoutButton/>)
+        }
       </div>
 
       {/* Mobile Menu */}
@@ -114,19 +119,28 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full backdrop-blur-md bg-white shadow-lg border-t border-white/20 p-4 flex flex-col gap-3 text-gray-800 font-medium md:hidden z-50">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link href="/carts" onClick={() => setIsMobileMenuOpen(false)}>Cart</Link>
-          <Link href="/contactus" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
-          <Link href="/privacy-policy" onClick={() => setIsMobileMenuOpen(false)}>Privacy Policy</Link>
-          <Link href="/shipping-delivery" onClick={() => setIsMobileMenuOpen(false)}>Shipping</Link>
-          <Link href="/terms-conditions" onClick={() => setIsMobileMenuOpen(false)}>Terms</Link>
-          <Link href="/cancellation-refund" onClick={() => setIsMobileMenuOpen(false)}>Refunds</Link>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-        </div>
-      )}
+ 
+     {/* Mobile Dropdown */}
+{isMobileMenuOpen && (
+  <div className="absolute top-full left-0 w-full backdrop-blur-md bg-white shadow-lg border-t border-white/20 p-4 flex flex-col gap-3 text-gray-800 font-medium md:hidden z-50">
+    <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+    <Link href="/carts" onClick={() => setIsMobileMenuOpen(false)}>Cart</Link>
+    <Link href="/contactus" onClick={() => setIsMobileMenuMenuOpen(false)}>Contact Us</Link>
+    <Link href="/privacy-policy" onClick={() => setIsMobileMenuOpen(false)}>Privacy Policy</Link>
+    <Link href="/shipping-delivery" onClick={() => setIsMobileMenuOpen(false)}>Shipping</Link>
+    <Link href="/terms-conditions" onClick={() => setIsMobileMenuOpen(false)}>Terms</Link>
+    <Link href="/cancellation-refund" onClick={() => setIsMobileMenuOpen(false)}>Refunds</Link>
+    <Link href="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+
+    {/* 👇 Add this conditionally for /admin/order route */}
+    {pathname === '/admin/order' && (
+      <div onClick={() => setIsMobileMenuOpen(false)}>
+        <LogoutButton />
+      </div>
+    )}
+  </div>
+)}
+
     </nav>
   );
 }

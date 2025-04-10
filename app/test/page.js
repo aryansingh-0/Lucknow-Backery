@@ -1,40 +1,158 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function SendMessageForm() {
-  const [phone, setPhone] = useState('');
-  const [response, setResponse] = useState(null);
+export default function OrderForm() {
+  const [formData, setFormData] = useState({
+    username: '',
+    deliveryDate: '',
+    deliveryTime: '',
+    messageOnCake: '',
+    mobileNumber: '',
+    email: '',
+    deliveryAddress: '',
+    townCity: '',
+    state: '',
+    product: [],
+    totalPrice: 0,
+  });
 
-  const sendMessage = async () => {
-    const res = await fetch('/api/send-message', {
+  // Load products from localStorage on mount
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      const parsedCart = JSON.parse(storedCart);
+      const total = parsedCart.reduce((acc, item) => acc + item.totalPrice, 0);
+      setFormData((prev) => ({
+        ...prev,
+        product: parsedCart.map(item => ({
+          name: item.cakeName,
+          quantity: item.quantity,
+          price: item.cakePrice,
+          weight: item.cakeWeight,
+          image: item.url,
+          category: item.category,
+        })),
+        totalPrice: total,
+      }));
+    }
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ to: phone }),
+      body: JSON.stringify(formData),
     });
 
     const data = await res.json();
-    setResponse(data);
+    if (res.ok) {
+      alert('Order submitted!');
+      console.log(data);
+      setFormData("");
+      localStorage.removeItem('cart');  
+      
+    } else {
+      alert('Error submitting order');
+      console.error(data);
+    }
   };
 
   return (
-    <div className='h-screen py-[20vh]'>
+    <form onSubmit={handleSubmit} className="mt-16 space-y-4 p-4 max-w-md mx-auto">
       <input
-        type="text"
-        placeholder="Enter phone number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        style={{ padding: '0.5rem', marginRight: '0.5rem' }}
+        name="username"
+        placeholder="Username"
+        value={formData.username}
+        onChange={handleChange}
+        className="border p-2 w-full"
       />
-      <button onClick={sendMessage} style={{ padding: '0.5rem', backgroundColor: 'green', color: 'white' }}>
-        Send Message
-      </button>
+      <input
+        type="date"
+        name="deliveryDate"
+        value={formData.deliveryDate}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        type="time"
+        name="deliveryTime"
+        value={formData.deliveryTime}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        name="messageOnCake"
+        placeholder="Message on Cake"
+        value={formData.messageOnCake}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        type="tel"
+        name="mobileNumber"
+        placeholder="Mobile Number"
+        value={formData.mobileNumber}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        name="deliveryAddress"
+        placeholder="Delivery Address"
+        value={formData.deliveryAddress}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        name="townCity"
+        placeholder="Town/City"
+        value={formData.townCity}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
+      <input
+        name="state"
+        placeholder="State"
+        value={formData.state}
+        onChange={handleChange}
+        className="border p-2 w-full"
+      />
 
-      {response && (
-        <pre style={{ marginTop: '1rem', background: '#f0f0f0', padding: '1rem' }}>
-          {JSON.stringify(response, null, 2)}
-        </pre>
-      )}
-    </div>
+      <div className="border p-2 rounded">
+        <h3 className="font-semibold mb-2">Products</h3>
+        {formData.product.length === 0 ? (
+          <p className="text-gray-500">Your cart is empty.</p>
+        ) : (
+          formData.product.map((item, index) => (
+            <div key={index} className="mb-2">
+              <p>🍰 {item.name}</p>
+              <p>Quantity: {item.quantity}</p>
+              <p>Price: ₹{item.price}</p>
+              <hr className="my-2" />
+            </div>
+          ))
+        )}
+        <p className="font-bold">Total: ₹{formData.totalPrice}</p>
+      </div>
+
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+        Place Order
+      </button>
+    </form>
   );
 }

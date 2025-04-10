@@ -1,18 +1,22 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCart } from '@/lib/cartSlice';
 import CartItem from '@/Components/Cart/CartItem';
 import BillSummary from '@/Components/Cart/BillSummary';
 
+import Image from 'next/image';
+import nocart from "@/public/images/nocart.png"
 export default function CartsPage() {
   const [showBill, setShowBill] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
+   
     const storedItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const initialized = storedItems.map(item => {
+    const initialized = storedItems.map((item) => {
       const weightMultiplier = parseInt(item.weight) / 500;
       return {
         ...item,
@@ -26,10 +30,14 @@ export default function CartsPage() {
 
   return (
     <div className="min-h-screen mt-8 py-10 px-4">
+      {/* Show the modular checkout flow */}
       {showBill && <BillSummary onClose={() => setShowBill(false)} />}
 
       {cartItems.length === 0 ? (
-        <p className="text-center text-lg">Your cart is empty.</p>
+        <div className=" flex relative items-center justify-center  flex-col ">  
+        <Image className='' src={nocart} alt='no cart image' />
+          </div>
+      
       ) : (
         <div className="max-w-5xl mx-auto pt-8 space-y-6">
           {cartItems.map((item, index) => (

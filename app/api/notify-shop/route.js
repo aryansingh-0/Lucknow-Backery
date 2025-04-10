@@ -12,12 +12,9 @@ export async function POST(request) {
     const payload = {
       messaging_product: 'whatsapp',
       to,
-      type: 'template',
-      template: {
-        name: 'hello_world',
-        language: {
-          code: 'en_US',
-        },
+      type: 'text',
+      text: {
+        body:'You Got an order go there https://aryan0singhlucknowbackery.netlify.app/admin/order'
       },
     };
 
