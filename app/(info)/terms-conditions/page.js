@@ -3,68 +3,87 @@ import React from 'react';
 
 export default function TermsAndConditions() {
   return (
-    <div className="min-h-screen pt-24 px-4   flex items-center justify-center">
-      <div className="max-w-5xl w-full rounded-2xl    p-8 ">
-        <h1 className="text-4xl font-bold text-highlight mb-6">Terms & Conditions</h1>
+    <div className="min-h-screen pt-24 px-4 flex items-center justify-center">
+      <div className="max-w-5xl w-full rounded-2xl p-8">
+        <h1 className="text-4xl font-bold text-highlight mb-6">
+          Terms & Conditions
+        </h1>
 
-        <p className="text-gray-700 mb-4">
-          Welcome to <span className="font-semibold text-link">Lucknow Bakers</span>. By accessing our website and placing an order, you agree to the terms and conditions mentioned below.
+        <p className="text-gray-700 mb-6 text-sm md:text-base">
+          For the purpose of these Terms and Conditions, the terms{" "}
+          <span className="font-semibold">"we", "us", "our"</span> shall mean{" "}
+          <span className="font-semibold">ARYAN SINGH</span>, whose registered/operational
+          office is at <span className="font-medium">Jaunpur, Uttar Pradesh, India – 222128</span>. 
+          The terms <span className="font-semibold">"you", "your", "user", "visitor"</span> 
+          shall mean any natural or legal person visiting our website and/or purchasing from us.
         </p>
 
-        <div className="space-y-4 text-gray-800 text-sm md:text-base">
+        <div className="space-y-6 text-gray-800 text-sm md:text-base">
           <div>
-            <h2 className="font-semibold text-lg text-highlight">1. Order Acceptance</h2>
+            <h2 className="font-semibold text-lg text-highlight">1. Website Content</h2>
             <p>
-              All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order for any reason, including pricing errors or issues with availability.
+              The content of this website is subject to change without prior notice. 
+              While we strive for accuracy, we make no warranties regarding completeness, 
+              reliability, or suitability for any purpose. You acknowledge that the 
+              website may contain inaccuracies, and we expressly exclude liability 
+              to the fullest extent permitted by law.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">2. Payment</h2>
+            <h2 className="font-semibold text-lg text-highlight">2. Use of Information & Products</h2>
             <p>
-              We accept payments via Google Pay and Cash on Delivery (COD). All online payments must be verified before dispatch. COD is available within Lucknow only.
+              Any use of materials, information, or products from this website is 
+              at your own risk. It is your responsibility to ensure that services 
+              or products meet your specific requirements.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">3. Delivery</h2>
+            <h2 className="font-semibold text-lg text-highlight">3. Intellectual Property</h2>
             <p>
-              Delivery timelines are estimates and not guaranteed. Delays may occur due to weather, traffic, or other unforeseen circumstances. Please refer to our Shipping & Delivery page for more.
+              All content on this website, including design, layout, graphics, 
+              and text, is owned by or licensed to us. Unauthorized reproduction 
+              is prohibited. All third-party trademarks are acknowledged on the site.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">4. Custom Orders</h2>
+            <h2 className="font-semibold text-lg text-highlight">4. Unauthorized Use</h2>
             <p>
-              For custom cakes, all design specifications must be confirmed 24–48 hours in advance. We are not liable for discrepancies if full details were not provided.
+              Any unauthorized use of materials or information may result in claims 
+              for damages and/or constitute a criminal offense.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">5. Refunds & Cancellations</h2>
+            <h2 className="font-semibold text-lg text-highlight">5. External Links</h2>
             <p>
-              Once an order is confirmed, cancellations are allowed only within 1 hour. Refunds will be processed within 5–7 business days for eligible cases.
+              Our website may include links to third-party websites for your convenience. 
+              We have no control over and accept no responsibility for their content or policies.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">6. Product Images</h2>
+            <h2 className="font-semibold text-lg text-highlight">6. Linking to Our Website</h2>
             <p>
-              Images shown on the website are for reference. Actual product may slightly vary in appearance, as everything is freshly handmade.
+              You may not create a link to our website without prior written consent from us.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">7. Privacy</h2>
+            <h2 className="font-semibold text-lg text-highlight">7. Governing Law & Disputes</h2>
             <p>
-              We respect your privacy. Please read our Privacy Policy to understand how your personal information is handled.
+              Any disputes arising out of the use of our website or purchases from us 
+              will be governed by the laws of <span className="font-medium">India</span>.
             </p>
           </div>
 
           <div>
-            <h2 className="font-semibold text-lg text-highlight">8. Contact Us</h2>
+            <h2 className="font-semibold text-lg text-highlight">8. Payment & Liability</h2>
             <p>
-              For any questions or issues, feel free to reach out via our <span className="text-link font-medium">Contact Us</span> page.
+              We are not liable for any loss or damage resulting from declined transactions, 
+              including cases where the cardholder has exceeded preset limits with their bank.
             </p>
           </div>
         </div>
