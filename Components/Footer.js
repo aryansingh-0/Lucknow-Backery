@@ -33,6 +33,9 @@ export default function Footer() {
             <li><Link href="/about" className="hover:underline">About</Link></li>
             <li><Link href="/contactus" className="hover:underline">Contact Us</Link></li>
             <li><Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
+            <li><Link href="/terms-conditions" className="hover:underline">Terms & Conditions</Link></li>
+            <li><Link href="/cancellation-refund" className="hover:underline">Cancellation & Refund</Link></li>
+            <li><Link href="/shipping-delivery" className="hover:underline">Shipping & Delivery</Link></li>
           </ul>
         </div>
 
@@ -40,10 +43,20 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4 items-center">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-200">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-200"
+            >
               <Facebook />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-200">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-200"
+            >
               <Instagram />
             </a>
           </div>
