@@ -1,27 +1,29 @@
 'use client';
-import React, { useState } from 'react';
-import CakeData from '@/public/JsonData/cake.json';
-import AddToCartModal from './AddToCartModal';
+import React, { useEffect, useState } from 'react';
 import CakeCard from './CakeCard';
 import Link from 'next/link';
 
 export default function Cake() {
-    const [selectedCategory, setSelectedCategory] = useState('All');
-    const [selectedCake, setSelectedCake] = useState(null);
 
-    const categories = ['All', ...new Set(CakeData.map(cake => cake.category))];
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [cakes, setCakes] = useState([])
+    const categories = ['All', ...new Set(cakes.map(cake => cake.category))];
 
     const filteredCakes =
         selectedCategory === 'All'
-            ? CakeData
-            : CakeData.filter(cake => cake.category === selectedCategory);
+            ? cakes
+            : cakes.filter(cake => cake.category === selectedCategory);
 
-    const handleAddToCartClick = (cake) => {
-        setSelectedCake(cake);
-    };
 
+    useEffect(() => {
+        getcake()
+    }, [])
+    const getcake = async () => {
+        const getcakes = await (await fetch('/api/cake')).json()
+        setCakes(getcakes.cakes)
+    }
     return (
-        <div className="w-full min-h-screen py-10 px-4">
+        <div onClick={getcake} className="w-full min-h-screen py-10 px-4">
             <h1 className="text-4xl font-bold text-center mb-6 text-[#4B2E2B]">
                 Our Delicious Cakes
             </h1>
@@ -44,24 +46,22 @@ export default function Cake() {
             </div>
 
             {/* Cake Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div className="flex flex-wrap justify-evenly gap-3 md:gap-8 max-w-7xl mx-auto">
                 {filteredCakes.slice(0, 8).map((cake, index) => (
-                    <CakeCard key={index} cake={cake} onAddToCart={handleAddToCartClick} />
+                    <CakeCard key={cake._id} cake={cake} />
                 ))}
             </div>
 
             <div className="viewmore flex items-center justify-center mt-8">
-               <Link href={"/cakes"}>
-                <button
-                    className="bg-link cursor-pointer  text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300"
-                >
-                    View More Products
-                </button></Link>
+                <Link href={"/cakes"}>
+                    <button
+                        className="bg-link cursor-pointer  text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300"
+                    >
+                        View More Products
+                    </button></Link>
             </div>
 
-            {selectedCake && (
-                <AddToCartModal cake={selectedCake} onClose={() => setSelectedCake(null)} />
-            )}
+
         </div>
     );
 }

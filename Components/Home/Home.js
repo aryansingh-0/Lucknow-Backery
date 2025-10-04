@@ -13,9 +13,10 @@ function Home() {
     <div className='relative'>
      <WhatsaAppIcon/>
       <HeroSection />
-      <WhatWeOffer />
+      
       <Cake />
       <WhyChooseUs />
+      <WhatWeOffer />
       <ContactUs />
     </div>
   )

@@ -1,34 +1,37 @@
 // models/Order.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
-  cakeName: String,
-  cakePrice: Number,
-  cakeWeight: String,
-  category: String,
-  quantity: Number,
-  totalPrice: Number,
-  url: String,
-  weight: Number,
+  cakeName: { type: String, required: true },
+  cakePrice: { type: Number, required: true },
+  cakeWeight: { type: String },
+  category: { type: String },
+  quantity: { type: Number, default: 1 },
+  totalPrice: { type: Number, required: true },
+  url: { type: String },
+  weight: { type: Number },
 });
 
-const OrderSchema = new mongoose.Schema({
-  username: String,
-  deliveryDate: String,
-  deliveryTime: String,
-  messageOnCake: String,
-  mobileNumber: String,
-  email: String,
-  deliveryAddress: String,
-  townCity: String,
-  state: String,
-  product: [ProductSchema],
-  totalPrice: Number,
-  status: {
-    type: String,
-    enum: ['pending', 'accepted', 'declined'],
-    default: 'pending',
+const OrderSchema = new mongoose.Schema(
+  {
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    deliveryDate: { type: String, required: true },
+    deliveryTime: { type: String, required: true },
+    messageOnCake: { type: String },
+    mobileNumber: { type: String, required: true },
+    email: { type: String, required: true },
+    deliveryAddress: { type: String, required: true },
+    townCity: { type: String, required: true },
+    state: { type: String, required: true },
+    products: [ProductSchema],
+    totalPrice: { type: Number, required: true },
+    status: {
+      type: String,
+      enum: ["pending", "accepted", "declined"],
+      default: "pending",
+    },
   },
-}, { timestamps: true });
+  { timestamps: true }
+);
 
-export default mongoose.models.Order || mongoose.model('Order', OrderSchema);
+export default mongoose.models.Order || mongoose.model("Order", OrderSchema);

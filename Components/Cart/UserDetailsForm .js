@@ -1,15 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Calendar, MapPin, Phone, User, MessageSquare } from 'lucide-react';
 
-export default function UserDetailsForm({ onFilled }) {
+import SubmitOrder from './SubmitOrder';
+export default function UserDetailsForm({ setStep,onFilled, onClose}) {
   const [details, setDetails] = useState({
-    username: '',
+    name: '',
     deliveryDate: '',
-    deliveryTime: '',
     messageOnCake: '',
     mobileNumber: '',
-    email: '',
     deliveryAddress: '',
     townCity: '',
     state: '',
@@ -32,126 +33,109 @@ export default function UserDetailsForm({ onFilled }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-md max-w-xl mx-auto">
-      <h2 className="text-xl font-bold mb-4 text-center">Enter Your Details</h2>
+    <motion.form
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="bg-white/80 backdrop-blur-lg border border-gray-200 shadow-xl rounded-2xl p-8 max-w-2xl mx-auto my-10"
+    >
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+        🎂 Delivery Details
+      </h2>
 
-      <div>
-        <label className="block text-sm mb-1">Your Name</label>
-        <input
-          name="username"
-          placeholder="e.g. Aman Singh"
-          value={details.username}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <InputField
+          label="Your Name"
+          name="name"
+          placeholder="Aman Singh"
+          value={details.name}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          icon={<User className="w-4 h-4 text-gray-500" />}
           required
         />
-      </div>
 
-      <div>
-        <label className="block text-sm mb-1">Delivery Date</label>
-        <input
+        <InputField
+          label="Mobile Number"
+          type="tel"
+          name="mobileNumber"
+          placeholder="9876543210"
+          value={details.mobileNumber}
+          onChange={handleChange}
+          icon={<Phone className="w-4 h-4 text-gray-500" />}
+          required
+        />
+
+        <InputField
+          label="Delivery Date"
           type="date"
           name="deliveryDate"
           value={details.deliveryDate}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          icon={<Calendar className="w-4 h-4 text-gray-500" />}
           required
         />
-      </div>
-
-      <div>
-        <label className="block text-sm mb-1">Delivery Time</label>
-        <input
-          type="time"
-          name="deliveryTime"
-          value={details.deliveryTime}
-          onChange={handleChange}
-          className="border p-2 w-full rounded"
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm mb-1">Message on Cake</label>
-        <input
+ <InputField
+          label="Message on Cake"
           name="messageOnCake"
-          placeholder="e.g. Happy Birthday!"
+          placeholder="Happy Birthday, Ananya!"
           value={details.messageOnCake}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          icon={<MessageSquare className="w-4 h-4 text-gray-500" />}
         />
-      </div>
 
-      <div>
-        <label className="block text-sm mb-1">Mobile Number</label>
-        <input
-          type="tel"
-          name="mobileNumber"
-          placeholder="e.g. 9876543210"
-          value={details.mobileNumber}
+        <InputField
+          label="Town / City"
+          name="townCity"
+          placeholder="Lucknow"
+          value={details.townCity}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          icon={<MapPin className="w-4 h-4 text-gray-500" />}
+          required
+        />
+
+        <InputField
+          label="State"
+          name="state"
+          placeholder="Uttar Pradesh"
+          value={details.state}
+          onChange={handleChange}
+          icon={<MapPin className="w-4 h-4 text-gray-500" />}
           required
         />
       </div>
 
-      <div>
-        <label className="block text-sm mb-1">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="e.g. aman@example.com"
-          value={details.email}
-          onChange={handleChange}
-          className="border p-2 w-full rounded"
-          required
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm mb-1">Delivery Address</label>
-        <input
+      <div className="mt-6 space-y-4">
+        <InputField
+          label="Delivery Address"
           name="deliveryAddress"
-          placeholder="e.g. 123, Alambagh, Near Metro"
+          placeholder="123, Alambagh, Near Metro Station"
           value={details.deliveryAddress}
           onChange={handleChange}
-          className="border p-2 w-full rounded"
+          icon={<MapPin className="w-4 h-4 text-gray-500" />}
           required
         />
+              </div>
+
+      <SubmitOrder setStep={setStep} details={details} onComplete={onClose} />
+    </motion.form>
+  );
+}
+
+/* ------------------ InputField Component ------------------ */
+function InputField({ label, icon, ...props }) {
+  return (
+    <div className="relative">
+      <label className="block text-sm font-medium text-gray-600 mb-1">
+        {label}
+      </label>
+      <div className="relative">
+        {icon && <span className="absolute left-3 top-3">{icon}</span>}
+        <input
+          {...props}
+          className="w-full border border-gray-300 rounded-lg py-2.5 px-10 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition placeholder-gray-400"
+        />
       </div>
-
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm mb-1">Town / City</label>
-          <input
-            name="townCity"
-            placeholder="e.g. Lucknow"
-            value={details.townCity}
-            onChange={handleChange}
-            className="border p-2 w-full rounded"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm mb-1">State</label>
-          <input
-            name="state"
-            placeholder="e.g. Uttar Pradesh"
-            value={details.state}
-            onChange={handleChange}
-            className="border p-2 w-full rounded"
-            required
-          />
-        </div>
-      </div>
-
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-6 py-2 rounded mt-4 w-full hover:bg-blue-700 transition"
-      >
-        Save & Continue
-      </button>
-    </form>
+    </div>
   );
 }

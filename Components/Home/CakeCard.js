@@ -1,33 +1,53 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AddToCartModal from './AddToCartModal';
 import Image from 'next/image';
 import { FaCartPlus } from 'react-icons/fa';
+import { Star } from "lucide-react";
 
-export default function CakeCard({ cake, onAddToCart }) {
+export default function CakeCard({ cake }) {
+  
+      const [selectedCake, setSelectedCake] = useState(null);
   return (
-    <div className="bg-white shadow-xl rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl transition duration-300">
-      <div className="relative w-full h-60">
+    <div  className="w-[150px]  md:w-[200px]    md:mb-0 flex flex-col transition duration-300 ">
+
+      {/* Image Section */}
+      <div className="relative  w-full h-[150px]">
         <Image
           src={cake.url}
           alt={cake.cakeName}
           fill
-          className="object-cover transition-transform hover:scale-110 duration-300"
+          className="object-cover rounded-2xl transition-transform hover:scale-105 duration-300"
         />
       </div>
 
-      <div className="p-4 text-[#4B2E2B]">
-        <h2 className="text-xl font-bold mb-1">{cake.cakeName}</h2>
-        <p className="text-lg mb-2">
-          Price: <span className="text-2xl font-bold">₹{cake.cakePrice}</span>
-        </p>
-        <button
-          onClick={() => onAddToCart(cake)}
-          className="mt-2 cursor-pointer bg-highlight text-white font-semibold px-4 py-2 rounded flex items-center gap-2 transition"
-        >
-          <FaCartPlus className="text-lg" />
-          Add to Cart
-        </button>
+      {/* Content Section */}
+      <div onClick={() => setSelectedCake(cake)} className="w-full px-3 flex flex-col justify-between text-gray-800">
+        <div>
+          <h2 className="text-lg font-semibold tracking-wide line-clamp-1">
+            {cake.cakeName}
+          </h2>
+          <div className='flex items-center flex-col md:flex-row justify-between w-full'>
+            <p className="text-sm  w-full md:w-auto mt-1 text-gray-600">
+              <p className="text-pink-600 font-bold"><span className='text-black'> Price:</span> ₹{cake.cakePrice}</p>
+              <span className=' flex items-center gap-1 '>{cake.rating}<Star fill='orange' className='w-5 h-5 text-yellow-300' /></span>
+            </p>
+            <button
+
+              className="mt-2 w-full   justify-center md:w-auto cursor-pointer bg-red-500 hover:bg-red-600 text-white font-medium px-3 py-1.5 rounded-md flex items-center gap-1 text-sm transition"
+            >
+              <FaCartPlus className="text-base" />
+              Add
+            </button>
+          </div>
+
+        </div>
+
+
       </div>
+      {selectedCake && (
+                      <AddToCartModal cake={selectedCake} onClose={() => setSelectedCake(null)} />
+                  )}
     </div>
   );
 }

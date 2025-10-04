@@ -1,30 +1,36 @@
 import React from 'react'
-import HeroImage from "@/public/assets/HeroSection/cake2.jpg"
+import HeroImage from "@/public/assets/HeroSection/cakeaman.jpg"
+import MobileImage from "@/public/assets/HeroSection/cakemobile.jpeg"
 import Image from 'next/image'
 import Link from 'next/link'
 
 function HeroSection() {
     return (
-        <div className="w-full pt-4 sm:pt-0 h-[50vh]  sm:h-[80vh] md:h-screen bg-gradient-to-br from-[#FDEBE5] via-[#F5D8C8] to-[#BA8966] relative flex">
+        <div className="w-full bg-amber-600 pt-2 sm:pt-0 h-[50vh]  sm:h-[70vh] md:h-[90vh] lg:h-screen  relative flex">
 
             <Image src={HeroImage}
-                className='   w-full h-full'
+                className='hidden md:block   w-full h-full'
                 alt='Hero Image' />
-            <div style={{ backgroundColor: 'rgba(255, 242, 231, 0.5)' }} className="hidden md:flex bg-opacity-20  absolute h-full w-full md:px-12  items-center justify-center top-0 left-0  ">
+            <Image src={MobileImage}
+                className='   md:hidden  w-full h-full'
+                alt='Hero Image md:hidden' />
+             
+            <div className="hidden md:flex  absolute h-full w-full md:w-1/2  md:px-12  items-center justify-center top-2  left-0  ">
 
-                <div className="text-highlight ">
-                    <h1 className='hidden md:block md:text-8xl md:text-start text-center font-bold'>
-                        Delicious Cake for You.
+                <div className="text-highlight  ">
+                    <h1 className='hidden md:block md:text-6xl md:text-start tracking-tighter leading-14 text-center font-bold'>
+                        Delicious Cake for You !
                     </h1>
-                    <p className='text-center hidden md:block text-2xl'>Enjoy our freshly baked, handcrafted cakes made with love.</p>
-                    <div className="button w-full flex items-center justify-center mt-6">
-                        <Link href={"/cakes"}> <button className='bg-link p-3 font-bold text-white cursor-pointer rounded-2xl '>Order Now</button>
+                    <p className=' mt-6 hidden md:block md:text-base text-sm'>Enjoy our freshly baked, handcrafted cakes made with love.</p>
+                    <div className=" w-full flex items-center justify-center mt-6">
+                        <Link className='w-full' href={"/cakes"}> 
+                        <button className='bg-red-600 p-3 w-full font-bold text-white cursor-pointer rounded-2xl '>Order Now</button>
                         </Link>
-                     
+
+                    </div>
+
                 </div>
-                  
-                </div>
-                
+
 
             </div>
 
