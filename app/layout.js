@@ -7,8 +7,9 @@ import { ToastContainer } from "react-toastify";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import SessionProviderWrapper from "./SessionProviderWrapper"; // import wrapper
-
+import Loading from "@/Components/Loading";
 import { AuthProvider } from "@/lib/auth";
+import WhatsaAppIcon from "@/Components/Home/WhatsaAppIcon";
 export const metadata = {
   title: "Lucknow Bakers",
   description: "Where tradition meets taste – handcrafted cakes made with love.",
@@ -23,11 +24,14 @@ export default async function RootLayout({ children }) {
       <head></head>
       <body>
 
+
         <ReduxProvider>
           <AuthProvider>
           <SessionProviderWrapper session={session}>
             <Navbar /> {/* client component can now use useSession */}
             <ToastContainer />
+            <Loading></Loading>
+            <WhatsaAppIcon />
             {children}
             <Footer />
             <MobileBar />

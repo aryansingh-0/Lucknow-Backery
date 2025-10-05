@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import CakeCard from './CakeCard';
 import Link from 'next/link';
 
-export default function Cake() {
+export default function Cake({cakes}) {
 
     const [selectedCategory, setSelectedCategory] = useState('All');
-    const [cakes, setCakes] = useState([])
+   
     const categories = ['All', ...new Set(cakes.map(cake => cake.category))];
 
     const filteredCakes =
@@ -14,16 +14,9 @@ export default function Cake() {
             ? cakes
             : cakes.filter(cake => cake.category === selectedCategory);
 
-
-    useEffect(() => {
-        getcake()
-    }, [])
-    const getcake = async () => {
-        const getcakes = await (await fetch('/api/cake')).json()
-        setCakes(getcakes.cakes)
-    }
+ 
     return (
-        <div onClick={getcake} className="w-full min-h-screen py-10 px-4">
+        <div   className="w-full min-h-screen py-10 px-4">
             <h1 className="text-4xl font-bold text-center mb-6 text-[#4B2E2B]">
                 Our Delicious Cakes
             </h1>
@@ -46,11 +39,14 @@ export default function Cake() {
             </div>
 
             {/* Cake Cards */}
-            <div className="flex flex-wrap justify-evenly gap-3 md:gap-8 max-w-7xl mx-auto">
-                {filteredCakes.slice(0, 8).map((cake, index) => (
-                    <CakeCard key={cake._id} cake={cake} />
-                ))}
-            </div>
+            <div className="flex gap-3 md:gap-8 max-w-7xl mx-auto overflow-x-auto scroll-smooth py-4">
+  {filteredCakes.slice(0, 16).map((cake) => (
+    <div key={cake._id} className="flex-shrink-0">
+      <CakeCard cake={cake} />
+    </div>
+  ))}
+</div>
+
 
             <div className="viewmore flex items-center justify-center mt-8">
                 <Link href={"/cakes"}>

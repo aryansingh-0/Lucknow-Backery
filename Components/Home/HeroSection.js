@@ -6,16 +6,16 @@ import Link from 'next/link'
 
 function HeroSection() {
     return (
-        <div className="w-full bg-amber-600 pt-2 sm:pt-0 h-[50vh]  sm:h-[70vh] md:h-[90vh] lg:h-screen  relative flex">
+        <div className="w-full pt-2 sm:pt-0 h-[50vh]  sm:h-[70vh] md:h-[90vh] lg:h-screen  relative flex">
 
             <Image src={HeroImage}
                 className='hidden md:block   w-full h-full'
                 alt='Hero Image' />
             <Image src={MobileImage}
-                className='   md:hidden  w-full h-full'
-                alt='Hero Image md:hidden' />
+                className='   md:hidden object-cover w-full h-full'
+                alt='Hero Image md:hidden' />  
              
-            <div className="hidden md:flex  absolute h-full w-full md:w-1/2  md:px-12  items-center justify-center top-2  left-0  ">
+            <div className="hidden bg-gradient-to-r from-yellow-400 to-transparent md:flex  absolute h-full w-full md:w-1/2  md:px-12  items-center justify-center top-2  left-0  ">
 
                 <div className="text-highlight  ">
                     <h1 className='hidden md:block md:text-6xl md:text-start tracking-tighter leading-14 text-center font-bold'>

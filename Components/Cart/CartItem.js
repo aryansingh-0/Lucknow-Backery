@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { MdDeleteForever } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { updateQuantity, setCart, removeItem } from '@/lib/cartSlice';
-
+import {toast} from "react-toastify"
 const weights = [500, 1000, 1500];
 
 export default function CartItem({ item, index, cartItems }) {
@@ -27,6 +27,7 @@ export default function CartItem({ item, index, cartItems }) {
   };
 
   const handleRemove = () => {
+    toast.success('Item removed from cart')
     dispatch(removeItem(index));
   };
 

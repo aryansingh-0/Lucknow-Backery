@@ -6,10 +6,10 @@ import { FaCartPlus } from 'react-icons/fa';
 import { Star } from "lucide-react";
 
 export default function CakeCard({ cake }) {
-  
-      const [selectedCake, setSelectedCake] = useState(null);
+
+  const [selectedCake, setSelectedCake] = useState(null);
   return (
-    <div  className="w-[150px]  md:w-[200px]    md:mb-0 flex flex-col transition duration-300 ">
+    <div onClick={() => setSelectedCake(cake)} className="w-[150px]  md:w-[200px]    md:mb-0 flex flex-col transition duration-300 ">
 
       {/* Image Section */}
       <div className="relative  w-full h-[150px]">
@@ -22,7 +22,7 @@ export default function CakeCard({ cake }) {
       </div>
 
       {/* Content Section */}
-      <div onClick={() => setSelectedCake(cake)} className="w-full px-3 flex flex-col justify-between text-gray-800">
+      <div  className="w-full px-3 flex flex-col justify-between text-gray-800">
         <div>
           <h2 className="text-lg font-semibold tracking-wide line-clamp-1">
             {cake.cakeName}
@@ -32,13 +32,7 @@ export default function CakeCard({ cake }) {
               <p className="text-pink-600 font-bold"><span className='text-black'> Price:</span> ₹{cake.cakePrice}</p>
               <span className=' flex items-center gap-1 '>{cake.rating}<Star fill='orange' className='w-5 h-5 text-yellow-300' /></span>
             </p>
-            <button
-
-              className="mt-2 w-full   justify-center md:w-auto cursor-pointer bg-red-500 hover:bg-red-600 text-white font-medium px-3 py-1.5 rounded-md flex items-center gap-1 text-sm transition"
-            >
-              <FaCartPlus className="text-base" />
-              Add
-            </button>
+            
           </div>
 
         </div>
@@ -46,8 +40,8 @@ export default function CakeCard({ cake }) {
 
       </div>
       {selectedCake && (
-                      <AddToCartModal cake={selectedCake} onClose={() => setSelectedCake(null)} />
-                  )}
+        <AddToCartModal cake={selectedCake} onClose={() => setSelectedCake(null)} />
+      )}
     </div>
   );
 }

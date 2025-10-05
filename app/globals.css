@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Merienda:wght@300..900&family=Noto+Serif+Thai:wght@100..900&family=Puritan:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
@@ -9,6 +10,7 @@
   --clean:#FFFFFF;
   --link:#B03060 ;
   --paragraph:#6E4B3A;
+  --font-nota: 'Noto Serif';
   --font-popin: 'Poppins', sans-serif;
 
 }
@@ -24,6 +26,7 @@
   --color-background: var(--background);
   --font-popin: var(--font-popin);
   --font-mono: var(--font-geist-mono);
+  --font-nota: var(--font-nota);
 }
 
 /* @media (prefers-color-scheme: dark) {

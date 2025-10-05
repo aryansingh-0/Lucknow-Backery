@@ -1,56 +1,90 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import { IoHomeSharp } from "react-icons/io5";
-import { FaRegHeart, FaWhatsapp } from "react-icons/fa"; import { FaShoppingBag } from "react-icons/fa";
-import { BsCake2 } from "react-icons/bs";
-import { useSelector } from 'react-redux';
- 
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useSelector } from 'react-redux';
+import { Home, ShoppingCart, Cake } from 'lucide-react';
+import { motion } from 'framer-motion';
+
 function MobileBar() {
-
- 
+  const pathname = usePathname();
   const cart = useSelector((state) => state.cart.cart);
-  
-  let numberOfItems = cart.length;
-  function openWhatsApp() {
-    const phoneNumber = '9711724100';
-    const url = `https://wa.me/${phoneNumber}`;
-    window.open(url, '_blank');
-  }
+  const numberOfItems = cart.length;
 
+  const navItems = [
+    { name: 'Home', href: '/', icon: <Home /> },
+    { name: 'Carts', href: '/carts', icon: <ShoppingCart />, badge: numberOfItems },
+    { name: 'Cakes', href: '/cakes', icon: <Cake /> },
+  ];
+
+  const indicatorColor = 'bg-red-500';
+  const inactiveColor = 'text-gray-600  ';
+  const textActiveColor = 'text-white hidden z-20 -mt-2 ';
 
   return (
-    <div className='w-full md:hidden z-50 h-16 bg-red-50 sticky bottom-0 flex items-center justify-evenly rounded-t-2xl'>
-   <Link href={"/"}>
-   
-      <div className="button ">
-        <div className="logo flex items-center justify-center w-full">
-          <IoHomeSharp className='text-2xl' />
-        </div>
+    <div className="fixed md:hidden bottom-0 left-0 right-0 z-50 h-16 flex items-center justify-around bg-[#fffbf6] rounded-t-3xl shadow-2xl border-t border-gray-100">
+      {navItems.map((item, idx) => {
+        const isActive = item.href && pathname === item.href;
 
-        Home</div></Link>
-     
-      <Link href={"/carts"}> 
-      <div className="button relative">
-        <div className="indicate   bg-red-300 absolute px-1.5 -top-2 -right-3 rounded-full">  {numberOfItems > 9 ? '9+' : numberOfItems}</div>
-        <div className="logo flex items-center justify-center w-full">
-          <FaShoppingBag className='text-2xl' />
-        </div>Carts
-      </div></Link>
-      <Link href={"/cakes"}> 
-      <div className="button relative">
-         
-        <div className="logo flex items-center justify-center w-full">
-          <BsCake2  className='text-2xl' />
-        </div>Cakes
-      </div></Link>
-      <div onClick={openWhatsApp} className="button">
-        <div className="logo flex items-center justify-center w-full">
-          <FaWhatsapp className='text-2xl text-green-600 ' />
-        </div>WhatsApp</div>
+        return item.href ? (
+          <Link
+            key={idx}
+            href={item.href}
+            className="relative flex flex-col items-center justify-center px-4 pt-2"
+          >
+            {/* Animated Circle */}
+        {isActive && (
+  <motion.div
+    initial={{ scale: 0 }}
+    animate={{ scale: 1.2 }}
+    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+    className={`absolute -top-10 w-16 h-16 rounded-full ${indicatorColor}
+      shadow-[0_2px_12px_rgba(0,0,0,0.6),0_12px_20px_rgba(0,0,0,0.3)]
+      
+      flex items-center justify-center`}
+  >
+    {React.cloneElement(item.icon, { className: 'w-7 h-7 text-white' })}
+  </motion.div>
+)}
 
+
+
+            {/* Inactive Icon */}
+            {!isActive && (
+              <div className="flex flex-col items-center justify-center pt-3">
+                {React.cloneElement(item.icon, { className: `w-6 h-6 ${inactiveColor}` })}
+              </div>
+            )}
+
+            {/* Text */}
+            <span
+              className={`text-xs  transition-colors duration-200 ${
+                isActive ? `font-bold ${textActiveColor}` : inactiveColor
+              }`}
+            >
+              {item.name}
+            </span>
+
+            {/* Badge */}
+            {item.badge > 0 && item.name === 'Carts' && (
+              <div className="absolute top-0 right-0 bg-yellow-300 text-black text-xs rounded-full h-4 w-4 flex items-center justify-center p-0.5 z-10">
+                {item.badge > 9 ? '9+' : item.badge}
+              </div>
+            )}
+          </Link>
+        ) : (
+          <div
+            key={idx}
+            className="relative flex flex-col items-center justify-center px-4 pt-2 cursor-pointer"
+          >
+            {React.cloneElement(item.icon, { className: `w-6 h-6 ${inactiveColor}` })}
+            <span className={`text-xs mt-1 ${inactiveColor}`}>{item.name}</span>
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 }
 
-export default MobileBar
+export default MobileBar;
